@@ -1,7 +1,7 @@
-from Fish import Fish
+from aquarium import Aquarium
+from fish import Fish
 
-a = Fish('XY',4, 'B', 'g', 'f', 'T')
-b = Fish('XX',4, 'b', 'G', 'f', 't')
-for i in range(10):
-    c = a.create_newborn(b)
-    print(c)
+aquarium = Aquarium()
+#print(aquarium)
+aquarium.add_fish(50)
+print(aquarium)

@@ -13,6 +13,30 @@ class Fish:
         self.tail_shape = tail_shape
         self.tail_color = tail_color
 
+    @classmethod
+    def random_fish(newfish):
+        newfish = Fish()
+        if rnd.random() > 0.5:
+            newfish.sex = 'XY'
+        newfish.age = int(rnd.uniform(0, 20))
+        if rnd.random() > 0.75:
+            newfish.spotting = 'b'
+        else:
+            newfish.spotting = 'B'
+        if rnd.random() > 0.75:
+            newfish.fin_color = 'g'
+        else:
+            newfish.fin_color = 'G'
+        if rnd.random() > 0.75:
+            newfish.tail_shape = 'f'
+        else:
+            newfish.tail_shape = 'F'
+        if rnd.random() > 0.75:
+            newfish.tail_color = 't'
+        else:
+            newfish.tail_color = 'T'
+        return newfish
+
     def __str__(self):
         return f"{self.sex}, {self.age}, {self.spotting}, {self.fin_color}, {self.tail_shape}, {self.tail_color}"
 
@@ -27,3 +51,4 @@ class Fish:
             newfish.tail_shape = gu.calc_newborn_gene(self.tail_shape, fish.tail_shape)
             newfish.tail_color = gu.calc_newborn_gene(self.tail_color, fish.tail_color)
             return newfish
+
