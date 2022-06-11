@@ -12,7 +12,7 @@ def the_simulator(run):
     simulation_length = 100
     initial_mosquito = 1000
     # the percentage of males with the "male gene"
-    male_gene_percentage = 50
+    male_gene_percentage = 0
     # creating aquarium
     aquarium = Aquarium()
     aquarium.add_mosquito(initial_mosquito, male_gene_percentage)
