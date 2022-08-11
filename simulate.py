@@ -5,17 +5,17 @@ from mosquito import Mosquito
 import matplotlib.pyplot as plt
 import datetime
 
-male_gene_percentage = 0
+male_gene_percentage = 30
 initial_mosquito = 10
 # the percentage of males with the "male gene"
-on = False
+on = True
 def the_simulator(run):
     day_counter = 1
     # in days
-    simulation_length = 15 0
+    simulation_length = 150
     male_gene_percentage1 = male_gene_percentage
     initial_mosquito1 = initial_mosquito
-    # creating aquarium
+    # creating aqu'arium
     aquarium = Aquarium()
     aquarium.add_mosquito(initial_mosquito1, male_gene_percentage1)
     print(aquarium)
@@ -61,7 +61,7 @@ def the_simulator(run):
     # axis[0].plot(day_counter, aquarium.get_total_mosquito(), 'b.')
 
     # axis[0].set_title(my_title, fontsize=18, color='blue')
-    if on != True:
+    if on:
         # graph 1
         plt.figure(str(run)+'-1')
 
@@ -74,7 +74,7 @@ def the_simulator(run):
         plt.grid(True)
 
         date = datetime.datetime.now()
-        plt.savefig('data/1' + str(date) + '-init-' + str(initial_mosquito1) + '-per-' + str(male_gene_percentage1) + '.png',dpi = 300)
+        plt.savefig('data/' + str(date) + '-init-' + str(initial_mosquito1) + '-per-' + str(male_gene_percentage1) + '-1.png',dpi = 300)
 
         # graph 2
         plt.figure(str(run)+'-2')
@@ -88,24 +88,23 @@ def the_simulator(run):
         plt.grid(True)
 
         date = datetime.datetime.now()
-        plt.savefig('data/2' + str(date) + '-init-' + str(initial_mosquito1) + '-per-' + str(male_gene_percentage1) + '.png',
+        plt.savefig('data/' + str(date) + '-init-' + str(initial_mosquito1) + '-per-' + str(male_gene_percentage1) + '-2.png',
                     dpi=300)
 
-    if on:
-        # graph 3
-        plt.figure(str(run) + '-3')
+    # graph 3
+    plt.figure(str(run) + '-3')
 
-        plt.plot(male_gene_percentage1, day_counter, 'b.')
-        plt.xlabel('male gene percentage', fontsize=12)
-        plt.ylabel('days took to obliterate', fontsize=12)
-        my_title = 'the effect of the male gene percentage on the amount of days that it takes the mosquitoes to obliterate (init =' + str(initial_mosquito1), 'male gene per =' + str(
-            male_gene_percentage1)
-        plt.title(my_title)
-        plt.grid(True)
+    plt.plot(l_ratio_male_gene, day_counter_ls, 'b.')
+    plt.xlabel('male gene percentage', fontsize=12)
+    plt.ylabel('days took to obliterate', fontsize=12)
+    my_title = 'the effect of the male gene percentage on the amount of days that it takes the mosquitoes to obliterate (init =' + str(initial_mosquito1), 'male gene per =' + str(
+        male_gene_percentage1)
+    plt.title(my_title)
+    plt.grid(True)
 
-        date = datetime.datetime.now()
-        plt.savefig('data/3' + str(date) + '-init-' + str(initial_mosquito1) + '-per-' + str(male_gene_percentage1) + '.png',
-                    dpi=300)
+    date = datetime.datetime.now()
+    plt.savefig('data/' + str(date) + '-init-' + str(initial_mosquito1) + '-per-' + str(male_gene_percentage1) + '-3.png',
+                dpi=300)
 
 for i in range (3):
     if not on:
